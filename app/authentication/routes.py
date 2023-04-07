@@ -1,4 +1,4 @@
-from forms import UserLoginForm
+from forms import UserLoginForm, UserSignUpForm
 from models import User, db, check_password_hash
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 
@@ -9,21 +9,24 @@ auth = Blueprint('auth', __name__, template_folder = 'auth_templates')
 
 @auth.route('/signup', methods = ['GET', 'POST'])
 def signup():
-    form = UserLoginForm()
+    form = UserSignUpForm()
 
     try:
         if request.method == 'POST' and form.validate_on_submit():
             email = form.email.data
             password = form.password.data
-            print(email, password)
+            first_name = form.first_name.data
+            last_name = form.last_name.data
 
-            user = User(email, password = password)
+            print(email, password, first_name, last_name)
+
+            user = User(email, first_name = first_name, last_name = last_name, password = password)
 
             db.session.add(user)
             db.session.commit()
 
             flash(f'You have successfully created a user account {email}', 'User-created')
-            return redirect(url_for('site/home'))
+            return redirect(url_for('site.home'))
     
     except:
         raise Exception('Invalid form data: Please check your form')
