@@ -13,3 +13,9 @@ class UserSignUpForm(FlaskForm):
     first_name = StringField('First Name', validators = [DataRequired()])
     last_name = StringField('Last Name')
     submit_button = SubmitField()
+
+class AddCar(FlaskForm):
+    make = StringField('Make', validators = [DataRequired()])
+    model = StringField('Model', validators = [DataRequired()])
+    year = StringField('Year', validators = [DataRequired()])
+    submit_button = SubmitField()

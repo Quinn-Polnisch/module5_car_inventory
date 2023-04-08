@@ -48,6 +48,9 @@ class User(db.Model, UserMixin):
     def __repr__(self):
         return f'User {self.email} has been added to the database'
     
+    def get_token(self):
+        return self.token
+    
 class Car(db.Model):
     id = db.Column(db.String, primary_key = True)
     make = db.Column(db.String(150))

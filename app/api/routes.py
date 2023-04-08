@@ -61,3 +61,4 @@ def delete_car(current_user_token, id):
     db.session.commit()
     response = car_schema.dump(car)
     return jsonify(response)
+    

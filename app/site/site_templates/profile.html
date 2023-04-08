@@ -14,12 +14,35 @@
     <section class="text-center">
     <div class="container p-10">
         <div class="row"><br>
-            <h3 class="p-5">Here are your profile details</h3>
+            <h3>Here are your profile details</h3>
             <ul class="list-group">
                 <li class="list-group-item">Email: {{ current_user.email }}</li>
+                <li class="list-group-item">First Name: {{ current_user.first_name }}</li>
+                <li class="list-group-item">Last Name: {{ current_user.last_name }}</li>
                 <li class="list-group-item">Token: {{ current_user.token }} </li> 
             </ul>
         </div>
+        <!-- {% if current_user.is_authenticated %}
+        <div class="row"><br>
+            <h3>Your Collection</h3>
+            <table class="table">
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                </tr>
+    
+                here is a for-loop to give us all the socks
+                {% for car in cars %}
+                <tr>
+                    <td>{{ car.make }}</td>
+                    <td>{{ car.model }}</td>
+                    <td>{{ car.year }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        {% endif %} -->
         <div class="row" style="margin-top: 20px;">
             <div class="col-4"></div>
             <div class="col-3 p-10">
